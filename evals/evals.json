@@ -1,0 +1,33 @@
+{
+  "skill_name": "theskill",
+  "evals": [
+    {
+      "id": 1,
+      "name": "ui-polish-landing-hero",
+      "prompt": "polish this landing page hero — the headline feels generic and the CTA button has no visual weight. here's the JSX: <section><h1>Transform your business with our solution</h1><button>Learn more</button></section>",
+      "expected_output": "Applies impeccable sub-skill: diagnoses hierarchy/typography/contrast issues, proposes specific CSS or token changes (e.g., larger headline, primary button color, padding). Output is actionable, not 'make it pop'.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "anti-slop-readme-intro",
+      "prompt": "this README intro sounds like AI wrote it, can you fix it? 'In today's fast-paced development landscape, leveraging modern tools is paramount. Our solution seamlessly integrates a plethora of features that delve into the complexities of software engineering, delivering a truly remarkable experience.'",
+      "expected_output": "Applies stop-slop sub-skill: identifies 'in today's fast-paced', 'landscape', 'leverage', 'seamlessly', 'plethora', 'delve', 'truly remarkable'. Rewrites with varied sentence length, specific claims, no hedges, no fake enthusiasm. Preserves meaning (the product integrates features).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "code-polish-process-function",
+      "prompt": "tighten up this function without changing behavior: function process(data, flag, tmp) { if (flag == true) { for (var i = 0; i < data.length; i++) { if (data[i] != null) { data[i].processed = true; } } } }",
+      "expected_output": "Applies code-impeccable: renames 'data' -> 'items', 'flag' -> 'shouldProcess', removes 'tmp' (unused), replaces '== true' with truthy check, replaces 'var' with 'let'/'const', uses for-of or forEach, removes unnecessary null check if type proves non-null. Behavior preserved exactly.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "commit-message-mixed-changes",
+      "prompt": "write a commit message for these changes: I added JWT authentication to the user API, rejected expired tokens before decoding, and updated the docs to mention the new auth header",
+      "expected_output": "Applies commit-craft: identifies this should ideally be split into 3 commits (feat, fix, docs). For the combined commit, suggests 'feat(auth): add JWT authentication to user API' with a body explaining the implementation, the expired-token check, and the docs update. No AI tells (no 'leverage', 'seamlessly', etc.). Imperative mood, <=50 char subject.",
+      "files": []
+    }
+  ]
+}
