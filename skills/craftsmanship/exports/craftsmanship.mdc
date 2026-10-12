@@ -71,3 +71,21 @@ The test: a senior reads the result and cannot tell a machine wrote it. Decision
 > Does this read as crafted by a disciplined professional with respect for the user's attention — or does any part look generated from a prompt?
 
 If any element feels like prompt-slop: eliminate it, don't soften it. Ship at *decided and verified* — not at *perfect*.
+
+---
+
+## Sources & attribution
+
+This file is the Cursor-rules export of the `craftsmanship` skill — an original synthesis (MIT for the synthesis; upstream material keeps its own licenses). It merges material from:
+
+- `ericchen931209/vibe-slop-detector` (slop taxonomy S1–S13)
+- `wwewtech/anti-slop-design` (MIT — banned tropes, archetypes, 8-state system, 7-axis gate)
+- `shahrukh-hack/vibe-superkit` (taste guide, micro-interaction principles)
+- `shinewinsu/vibe-frontend-design` (Design Read, Three Dials, layout dictionary)
+- `ConardLi/garden-skills` — web-design-engineer (calibration workflow)
+- Pangram Labs code-forensics writeups (why AI code is detectable)
+- Motion principles by **Emil Kowalski** (emilkowalski.dev)
+- `hardikpandya/stop-slop` (prose rules and scoring)
+- `pbakaus/impeccable` v4.5.2 (Apache 2.0 — craft-floor, verification)
+
+Full per-source credits and licenses: `skills/craftsmanship/ATTRIBUTION.md` in the `theskill` repo. Keep this section when redistributing.

@@ -1,6 +1,6 @@
 # craft-details — typography, motion, and the interaction layer
 
-> Merged from: `wwewtech/anti-slop-design` (MIT — 8-state system, Emil Kowalski matrix, spacing geometry), `shinewinsu/vibe-frontend-design` (typography engineering), and this repo's `impeccable` craft-floor (Apache 2.0 — browser surfaces, verify list). See ATTRIBUTION.md.
+> Merged from: `wwewtech/anti-slop-design` (MIT — 8-state system, spacing geometry), `shinewinsu/vibe-frontend-design` (typography engineering), motion principles originally by **Emil Kowalski** (emilkowalski.dev, via the two repos above), and this repo's `impeccable` craft-floor (Apache 2.0 — browser surfaces, verify list). See ATTRIBUTION.md.
 
 This file is the finish work. The layout is decided, the archetype tokens are in place — this is what separates "looks fine in a screenshot" from "feels crafted under the cursor".
 

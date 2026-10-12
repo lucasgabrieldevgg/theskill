@@ -15,7 +15,7 @@ Read the user's request, then pick the matching sub-skill. If two apply (e.g., "
 
 | User intent | Sub-skill | Path | Origin |
 | --- | --- | --- | --- |
-| **Anti vibe coding + design (the big merged skill)** — make code read human (kill generic naming, ghost comments, silent catches, slop taxonomy S1–S14) and make UI read bespoke (kill template tropes, four archetypes, typography/motion craft, quality gates) — use for any 'looks AI-generated' / 'de-slop' / 'make it human' request spanning code and/or UI | `craftsmanship` | `skills/craftsmanship/SKILL.md` | Original synthesis merging 5 external sources + this repo's sub-skills (see its ATTRIBUTION.md) |
+| **Anti vibe coding + design (the big merged skill)** — make code read human (kill generic naming, ghost comments, silent catches, slop taxonomy S1–S14) and make UI read bespoke (kill template tropes, four archetypes, typography/motion craft, quality gates) — use for any 'looks AI-generated' / 'de-slop' / 'make it human' request spanning code and/or UI | `craftsmanship` | `skills/craftsmanship/SKILL.md` | Original synthesis merging 6 external sources + this repo's sub-skills (see its ATTRIBUTION.md) |
 | Refine, audit, redesign, or elevate a frontend interface — websites, dashboards, components, design systems, typography, spacing, motion, accessibility, error states, empty states | `impeccable` | `skills/impeccable/SKILL.md` | Upstream: `pbakaus/impeccable` v4.5.2 (Apache 2.0) |
 | Remove AI writing patterns from prose — drafting, editing, reviewing, eliminating predictable tells like filler phrases, formulaic structures, narrator-from-a-distance voice, em-dashes | `stop-slop` | `skills/stop-slop/SKILL.md` | Upstream: `hardikpandya/stop-slop` |
 | Polish source code without changing behavior — naming, dead code removal, structure, readability, idiomatic patterns, refactor opportunities | `code-impeccable` | `skills/code-impeccable/SKILL.md` | Original |
@@ -59,7 +59,7 @@ All seven sub-skills are written in English (the working language of most codeba
 - `impeccable` is © Paul Bakaus, licensed Apache 2.0, source: <https://github.com/pbakaus/impeccable>. See `skills/impeccable/LICENSE.upstream`.
 - `stop-slop` is © Hardik Pandya, source: <https://github.com/hardikpandya/stop-slop>. See `skills/stop-slop/LICENSE.upstream`.
 - `code-review` is © awesome-skills, licensed MIT, source: <https://github.com/awesome-skills/code-review-skill>. See `skills/code-review/LICENSE.upstream`.
-- `craftsmanship` is an original synthesis for this repo (MIT), merging upstream material from `ericchen931209/vibe-slop-detector`, `wwewtech/anti-slop-design`, `shahrukh-hack/vibe-superkit`, `shinewinsu/vibe-frontend-design`, and `ConardLi/garden-skills`, plus this repo's originals. See `skills/craftsmanship/ATTRIBUTION.md`.
+- `craftsmanship` is an original synthesis for this repo (MIT), merging upstream material from `ericchen931209/vibe-slop-detector`, `wwewtech/anti-slop-design`, `shahrukh-hack/vibe-superkit`, `shinewinsu/vibe-frontend-design`, `ConardLi/garden-skills`, Pangram Labs' code-forensics writeups, and Emil Kowalski's motion principles, plus this repo's originals. See `skills/craftsmanship/ATTRIBUTION.md`.
 - `code-impeccable`, `test-craft`, and `commit-craft` are original to this repo, MIT licensed.
 
 ---
