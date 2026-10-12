@@ -42,6 +42,27 @@
       "prompt": "is this test any good? test('user service', async () => { const result = await userService.create({ email: 'test@test.com' }); expect(result).toBeTruthy(); expect(result.id).toBeDefined(); expect(result.email).toBeTruthy(); });",
       "expected_output": "Applies test-craft: identifies multiple issues — test name 'user service' doesn't describe behavior (should be 'createsUser_whenEmailIsValid' or similar), assertions are vague (toBeTruthy/toBeDefined instead of exact values), no edge case coverage (invalid email, duplicate email, missing fields), no assertion on side effects (was the user actually persisted?). Prescribes specific improvements without changing what the test currently asserts.",
       "files": []
+    },
+    {
+      "id": 7,
+      "name": "craftsmanship-de-slop-dashboard",
+      "prompt": "my SaaS dashboard looks like every AI-generated app - dark background with purple gradient glows in the corners, three identical feature cards, emoji icons, and uppercase labels like OVERVIEW everywhere. fix it",
+      "expected_output": "Applies craftsmanship (design track): recognizes the banned-trope hits (gradient blobs, 3-card grid, emoji icons, screaming eyebrows). Prescribes one archetype (e.g., Quiet Luxury SaaS tokens), replacement layout (bento with hero tile), Lucide icon swap, sentence case. Runs the Design Read first, then the 7-axis gate before delivering. Commits to one visual world instead of restyling.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "name": "craftsmanship-code-looks-ai",
+      "prompt": "reviewers keep saying my code looks AI-generated. here's a sample: // Helper function to process user data / async function processUserData(userId) { let result = null; try { const data = await fetchUser(userId); const isValid = await validateUserData(data); if (isValid == true) { result = await saveUserData(data); return true; } else { return false; } } catch (e) { console.error(e); return false; } }",
+      "expected_output": "Applies craftsmanship (code track): flags S6 (processUserData, data, result, isValid), S10 (if == true returning booleans, intermediate flags), S9 (catch-log-and-continue swallow), S1 (ghost 'helper function' comment), S14 (uniform defensive style). Prescribes domain-named function (activateAccount or similar per actual job), typed result instead of boolean soup, explicit error contract. Behavior-preservation rule stated; bug fixes flagged separately, not bundled.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "name": "craftsmanship-landing-bespoke",
+      "prompt": "build a landing page for my freight-dispatch SaaS - but please don't make it look like the generic AI sites, I want it to feel like a real company built it",
+      "expected_output": "Applies craftsmanship (full stack of tracks): outputs a Design Read line first (freight dispatchers, chosen world, dials V/M/D). Picks a committed archetype (likely Technical Dense Terminal for the ops audience - not default purple SaaS). No gradient blobs, no 3-card grids, no eyebrow labels; tabular numerals; 8-state buttons; one authored motion moment; real dispatch-domain copy ('Track a load', not 'Transform your logistics'). Ends with the final assertion question before delivering.",
+      "files": []
     }
   ]
 }

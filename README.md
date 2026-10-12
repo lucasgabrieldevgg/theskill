@@ -1,8 +1,8 @@
 # theskill
 
-> **PT** — Um compilado de skills de polimento de software: UI, prosa, código, testes, commits e PR reviews. Seis sub-skills especializadas sob um único roteador — três importadas dos repositórios oficiais, três autorais.
+> **PT** — Um compilado de skills de polimento de software: UI, prosa, código, testes, commits e PR reviews — e agora também a Big Skill **craftsmanship** de Anti Vibe Coding + Design. Sete sub-skills especializadas sob um único roteador.
 >
-> **EN** — A bundled skill collection for polishing software deliverables: UI, prose, code, tests, commits, and PR reviews. Six specialized sub-skills under a single router — three imported from official upstream repos, three original.
+> **EN** — A bundled skill collection for polishing software deliverables: UI, prose, code, tests, commits, and PR reviews — now including the merged **craftsmanship** big skill for Anti Vibe Coding + Design. Seven specialized sub-skills under a single router.
 
 ---
 
@@ -12,10 +12,11 @@
 
 `theskill` é uma meta-skill: um roteador que dispara em qualquer intenção de polimento e encaminha para a sub-skill certa. Mantém o inventário de skills enxuto (uma entrada só) sem sacrificar cobertura.
 
-### As seis sub-skills
+### As sete sub-skills
 
 | Sub-skill | Origem | Para que serve |
 | --- | --- | --- |
+| **craftsmanship** | Big Skill original deste repo (síntese) | **Anti Vibe Coding + Design**: remove 'cara de IA' do código (taxonomia de slop S1–S14, naming de domínio, comentários honestos) e da UI (16 tropos banidos, 4 arquétipos com tokens, tipografia/motion/8 estados, quality gates). Inclui export pro Cursor (`exports/craftsmanship.mdc`) e é compatível com Claude Code, GLM/Z.ai e ClawHub. Fontes: vibe-slop-detector, anti-slop-design, vibe-superkit, vibe-frontend-design, garden-skills + as skills deste repo (ver `skills/craftsmanship/ATTRIBUTION.md`). |
 | **impeccable** | [`pbakaus/impeccable`](https://github.com/pbakaus/impeccable) v4.5.2 (Apache 2.0) — por Paul Bakaus | Polimento de interfaces front-end: sites, dashboards, componentes, design systems, tipografia, spacing, motion, acessibilidade. Inclui 45 arquivos de referência e scripts de browser automation. |
 | **stop-slop** | [`hardikpandya/stop-slop`](https://github.com/hardikpandya/stop-slop) — por Hardik Pandya | Remover padrões de escrita típicos de IA: filler phrases, structures formulaicas, voice distante, em-dashes, hedges. |
 | **code-impeccable** | Original neste repo | Polimento de código sem mudar comportamento: nomes, dead code, estrutura, padrões idiomáticos, legibilidade. |
@@ -26,7 +27,7 @@
 ### Como usar
 
 1. Instale a skill no seu ambiente ClawHub.
-2. Peça coisas como "polish this landing page", "this README sounds like AI, fix it", "tighten up this function", "review my PR", "are these tests any good", "write a commit message for these changes".
+2. Peça coisas como "polish this landing page", "this README sounds like AI, fix it", "tighten up this function", "review my PR", "are these tests any good", "write a commit message for these changes", ou "this code looks AI-generated, make it human" / "de-slop my app" (essas vão pro craftsmanship).
 3. A skill raiz encaminha automaticamente para a sub-skill certa.
 
 ### Estrutura
@@ -37,6 +38,12 @@ theskill/
 ├── README.md                      # este arquivo (bilíngue)
 ├── .gitignore
 ├── skills/
+│   ├── craftsmanship/             # BIG SKILL: anti-vibe coding + design (síntese original)
+│   │   ├── SKILL.md               # roteador + contrato de craft + hard bans
+│   │   ├── references/            # anti-vibe-code, anti-slop-design, craft-details,
+│   │   │                          #   prose-git, quality-gates
+│   │   ├── exports/craftsmanship.mdc  # export p/ Cursor rules
+│   │   └── ATTRIBUTION.md         # fontes upstream e licenças
 │   ├── impeccable/                # upstream: pbakaus/impeccable v4.5.2 (Apache 2.0)
 │   │   ├── SKILL.md
 │   │   ├── LICENSE.upstream
@@ -62,6 +69,7 @@ theskill/
 
 ### Atribuição e licenciamento
 
+- **craftsmanship**: síntese original (MIT) deste repo; material upstream mantém suas licenças — ver [`skills/craftsmanship/ATTRIBUTION.md`](skills/craftsmanship/ATTRIBUTION.md).
 - **impeccable**: Apache 2.0, ver [`skills/impeccable/LICENSE.upstream`](skills/impeccable/LICENSE.upstream). Crédito a Paul Bakaus. Repo: <https://github.com/pbakaus/impeccable>.
 - **stop-slop**: licença original, ver [`skills/stop-slop/LICENSE.upstream`](skills/stop-slop/LICENSE.upstream). Crédito a Hardik Pandya. Repo: <https://github.com/hardikpandya/stop-slop>.
 - **code-review**: MIT, ver [`skills/code-review/LICENSE.upstream`](skills/code-review/LICENSE.upstream). Crédito a awesome-skills. Repo: <https://github.com/awesome-skills/code-review-skill>.
@@ -75,10 +83,11 @@ theskill/
 
 `theskill` is a meta-skill: a router that triggers on any polish-quality intent and dispatches to the right sub-skill. Keeps the skills inventory lean (one entry) without sacrificing coverage.
 
-### The six sub-skills
+### The seven sub-skills
 
 | Sub-skill | Origin | What it does |
 | --- | --- | --- |
+| **craftsmanship** | Original big-skill synthesis in this repo | **Anti Vibe Coding + Design**: remove AI tells from code (slop taxonomy S1–S14, domain naming, honest comments) and from UI (16 banned tropes, 4 archetypes with tokens, typography/motion/8-state craft, quality gates). Ships a Cursor rules export (`exports/craftsmanship.mdc`); works on Claude Code, GLM/Z.ai, and ClawHub. Sources: vibe-slop-detector, anti-slop-design, vibe-superkit, vibe-frontend-design, garden-skills + this repo's sub-skills (see `skills/craftsmanship/ATTRIBUTION.md`). |
 | **impeccable** | [`pbakaus/impeccable`](https://github.com/pbakaus/impeccable) v4.5.2 (Apache 2.0) — by Paul Bakaus | Frontend interface polish: websites, dashboards, components, design systems, typography, spacing, motion, accessibility, error states, empty states. Ships with 45 reference files and browser-automation scripts. |
 | **stop-slop** | [`hardikpandya/stop-slop`](https://github.com/hardikpandya/stop-slop) — by Hardik Pandya | Remove AI writing patterns: filler phrases, formulaic structures, narrator-from-a-distance voice, em-dashes, hollow hedging. |
 | **code-impeccable** | Original to this repo | Code polish without behavior change: naming, dead code, structure, idiomatic patterns, readability. |
@@ -89,11 +98,12 @@ theskill/
 ### How to use
 
 1. Install the skill in your ClawHub environment.
-2. Ask things like "polish this landing page", "this README sounds like AI, fix it", "tighten up this function", "review my PR", "are these tests any good", "write a commit message for these changes".
+2. Ask things like "polish this landing page", "this README sounds like AI, fix it", "tighten up this function", "review my PR", "are these tests any good", "write a commit message for these changes", or "this code looks AI-generated, make it human" / "de-slop my app" (those route to craftsmanship).
 3. The root skill routes automatically to the right sub-skill.
 
 ### Attribution & licensing
 
+- **craftsmanship**: original synthesis for this repo (MIT); upstream material keeps its own licenses — see [`skills/craftsmanship/ATTRIBUTION.md`](skills/craftsmanship/ATTRIBUTION.md).
 - **impeccable**: Apache 2.0, see [`skills/impeccable/LICENSE.upstream`](skills/impeccable/LICENSE.upstream). Full credit to Paul Bakaus. Upstream: <https://github.com/pbakaus/impeccable>.
 - **stop-slop**: original license, see [`skills/stop-slop/LICENSE.upstream`](skills/stop-slop/LICENSE.upstream). Full credit to Hardik Pandya. Upstream: <https://github.com/hardikpandya/stop-slop>.
 - **code-review**: MIT, see [`skills/code-review/LICENSE.upstream`](skills/code-review/LICENSE.upstream). Full credit to awesome-skills. Upstream: <https://github.com/awesome-skills/code-review-skill>.
@@ -103,7 +113,7 @@ theskill/
 
 ## License
 
-MIT for original content (`theskill` root, `code-impeccable`, `test-craft`, `commit-craft`). Sub-skills `impeccable`, `stop-slop`, and `code-review` retain their upstream licenses — see each sub-skill's `LICENSE.upstream`.
+MIT for original content (`theskill` root, `craftsmanship`, `code-impeccable`, `test-craft`, `commit-craft`). Sub-skills `impeccable`, `stop-slop`, and `code-review` retain their upstream licenses — see each sub-skill's `LICENSE.upstream`. `craftsmanship` merges upstream material that keeps its own licenses — see its `ATTRIBUTION.md`.
 
 ## Contributing
 

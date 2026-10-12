@@ -1,0 +1,73 @@
+---
+description: craftsmanship — anti-vibe coding + design. Apply when writing, refactoring, reviewing, or polishing any code, UI, docs, or commits, especially to remove AI tells / template look.
+globs:
+alwaysApply: true
+---
+
+# craftsmanship (Cursor rules export)
+
+The test: a senior reads the result and cannot tell a machine wrote it. Decisions instead of defaults, domain language instead of placeholders, restraint instead of decoration.
+
+## Craft contract
+
+1. **Decide, don't default.** Every name, palette, rhythm is traceable to a choice. The statistical middle is what "looks AI" means.
+2. **Speak the domain's language.** `invoiceDueDate`, `dunningLevel` — never `data`, `item`, `processItem`. Interfaces sound like the domain's operators, not like a template.
+3. **Restraint is a feature.** Audit for what can be removed before adding anything.
+4. **Verify the built result, not the intention.**
+
+## Code: the slop taxonomy (never ship these)
+
+- **Empty-set names:** `data`, `result`, `temp`, `info`, `obj`, `item`, `thing`, `manager`, `handler`, `helper`, `utils`, `processor` when a domain name exists.
+- **Ghost comments** restating adjacent code; AI signature phrases ("certainly", "here's the implementation"); emoji/section-banner comments.
+- **Silent error swallowing:** `except: pass`, `catch {}`, log-and-continue. Errors recover, rethrow with context, or fail fast — never print-and-continue.
+- **God functions** (>50 lines MEDIUM, >100 HIGH, >7 params); **copy-paste clones** (>80% similarity, except coincidental); **verbosity inflation** (`if x: return True else: return False`); **redundant docstrings** restating the signature; **defensive over-checking** (`== True`, `len(x) > 0`, checks the types already prove); **dead imports**; **TODO graveyards** without ticket refs; **magic numbers** (name them: `RETRY_DELAY_SECONDS`).
+- **Comments explain why, never what.** Business rules, trade-offs, workaround links, warnings. First person OK if the codebase does it.
+- **Uniformity is also a tell.** Match the codebase's local dialect; one documented deviation beats timid consistency everywhere.
+- **Never mix polish with behavior changes.** Bugs found mid-polish get flagged, not fixed.
+- Idioms: TS — `unknown` + narrowing, no `any`, early returns. Python — comprehensions, pathlib, type hints on public APIs only. Go — `%w` wrapping, table tests. Rust — no `.unwrap()` outside tests. SQL — explicit columns, no `SELECT *`.
+
+## Design: the banned tropes (never ship these)
+
+- Purple/indigo radial gradient blobs; gradient text; glowing card borders; glassmorphism on every surface.
+- Three identical icon-heading-text cards as page structure; nested cards.
+- Emoji as icons — one library, one stroke weight (Lucide/Phosphor/Heroicons).
+- Uppercase tracked-out eyebrow labels; one-word italic/gradient accents in headlines.
+- Vanity stats ("99.9% uptime") with no source; dead placeholders (placeholder.com, hotlinked Unsplash, lorem ipsum in shipped copy).
+- Pure `#000`/`#fff` in dark mode — tinted charcoal (`#09090b`) + stepped text (`zinc-100 → zinc-400`).
+- Same-fade-everywhere entrances; `transition: all 0.3s ease` wet-cardboard motion.
+- Unmodified Inter as the entire type system.
+
+## Design: the system
+
+- **Pick one archetype and commit:** Quiet Luxury SaaS (dark `#09090b`, cobalt accent, radius 6/10/14), Technical Terminal (dense, emerald + amber-alert, radius 2/4), Editorial (cream `#faf8f5`, serif display, radius 0/2), Warm Tactile (`#f4f4f0`, ochre, radius 8/16/24).
+- **Layouts:** bento (hero tile 2×2), split-screen 5/7, asymmetric 12-col 7:5, masonry, timeline rail, SaaS shell (240px sidebar + header + `max-w-7xl`), dashboard (control bar → 4-KPI row → 70/30 split → table).
+- **Surface stack:** canvas → surface (+1 step, hairline border) → overlay/hover (+1, border brightens) → modal (`shadow-2xl`, own focus ring).
+- **UX axioms:** 1 primary + max 3 secondary per zone; design for the 85% scenario; one KPI per viewport; one global filter bar; mobile linearity.
+- **Type:** max 2 families; display with negative tracking (-0.02 to -0.04em); body 65–75ch, leading 1.6; `tabular-nums` on all metrics; obvious scale steps.
+- **Spacing:** 8pt ladder (4/8/12/16/24/32/48/64); nested radius = outer − padding; icon gap 1.5–2 sized to x-height.
+- **Motion:** 100+/day actions = 0ms; standard 120–180ms; modals 200–250ms; `ease-in` banned; `cubic-bezier(0.23,1,0.32,1)`; press scale 0.97 at 60ms; popovers scale from trigger; one authored entrance moment with 50–80ms stagger; `prefers-reduced-motion` respected.
+- **8 states on every primitive:** default, hover, focus-visible, active, disabled, loading, error, success.
+- **Browser surfaces:** theme `::selection`, caret, scrollbars, focus rings, underline offset — the cheapest human signal.
+
+## Workflow
+
+1. **Design Read first line:** `building [artifact] for [audience], in [world], dials [V/M/D], stack [...]`. Code side: what does this module do, for whom, in which scene.
+2. **Diagnose** against the catalogs above (flag, don't fix yet).
+3. **Prescribe** the smallest honest diff, grouped in batches.
+4. **Verify:** behavior preserved, form state and handlers survive restyles.
+5. **Gate:** UI — 7 axes each ≥ 4 (anti-slop purity, UX speed, type discipline, spacing geometry, motion/states, a11y, responsive). Code — slop score ≤ 20 clean, ≤ 40 acceptable with HIGHs fixed, 41+ blocked. Prose — ≥ 35/50 on directness/rhythm/trust/authenticity/density.
+
+## Prose & git (condensed)
+
+- No throat-clearing ("here's the thing"), no hedging adverbs (really/just/simply/actually), no em-dash cadence, no "not X, but Y" contrasts.
+- Active voice with human actors: decisions don't "emerge", data doesn't "tell us" — someone decides, someone concludes.
+- UI copy: controls name their action; errors name the problem AND the recovery; empty states say what appears and what to do.
+- Commits: `feat(auth):` imperative ≤ 50 chars, body = why not what, no "leverage/seamlessly/robust" in history, `Fixes #N`.
+- PRs: summary → motivation → changes → testing (always) → screenshots (UI) → breaking → rollback → reviewer focus.
+- Changelogs: user perspective, Keep-a-Changelog groups — never a commit dump.
+
+## Final assertion before any delivery
+
+> Does this read as crafted by a disciplined professional with respect for the user's attention — or does any part look generated from a prompt?
+
+If any element feels like prompt-slop: eliminate it, don't soften it. Ship at *decided and verified* — not at *perfect*.
