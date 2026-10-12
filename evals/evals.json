@@ -26,7 +26,21 @@
       "id": 4,
       "name": "commit-message-mixed-changes",
       "prompt": "write a commit message for these changes: I added JWT authentication to the user API, rejected expired tokens before decoding, and updated the docs to mention the new auth header",
-      "expected_output": "Applies commit-craft: identifies this should ideally be split into 3 commits (feat, fix, docs). For the combined commit, suggests 'feat(auth): add JWT authentication to user API' with a body explaining the implementation, the expired-token check, and the docs update. No AI tells (no 'leverage', 'seamlessly', etc.). Imperative mood, <=50 char subject.",
+      "expected_output": "Applies commit-craft: identifies this should ideally be split into 3 commits (feat, fix, docs). For the combined commit, suggests 'feat(auth): add JWT authentication to user API' with a body explaining the implementation, the expired-token check, and the docs update. No AI tellss (no 'leverage', 'seamlessly', etc.). Imperative mood, <=50 char subject.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "code-review-react-pr",
+      "prompt": "review this PR — it adds a useUser hook that fetches user data on mount: function useUser(id) { const [user, setUser] = useState(null); useEffect(() => { fetch('/api/users/' + id).then(r => r.json()).then(setUser); }, []); return user; }",
+      "expected_output": "Applies code-review: identifies missing error handling (no try/catch, no .catch), missing loading state, missing cleanup (no abort controller), dependency array should include 'id' (current will only fetch once with initial id), no return of [user, loading, error] tuple. Loads skills/code-review/reference/react.md if needed for React-specific patterns. Provides prioritized feedback (P0 blocking / P1 should-fix / P2 nice-to-have).",
+      "files": []
+    },
+    {
+      "id": 6,
+      "name": "test-craft-vague-assertions",
+      "prompt": "is this test any good? test('user service', async () => { const result = await userService.create({ email: 'test@test.com' }); expect(result).toBeTruthy(); expect(result.id).toBeDefined(); expect(result.email).toBeTruthy(); });",
+      "expected_output": "Applies test-craft: identifies multiple issues — test name 'user service' doesn't describe behavior (should be 'createsUser_whenEmailIsValid' or similar), assertions are vague (toBeTruthy/toBeDefined instead of exact values), no edge case coverage (invalid email, duplicate email, missing fields), no assertion on side effects (was the user actually persisted?). Prescribes specific improvements without changing what the test currently asserts.",
       "files": []
     }
   ]
