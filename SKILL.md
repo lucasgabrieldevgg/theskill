@@ -42,7 +42,7 @@ The `code-review` sub-skill ships with assets (PR review template, review checkl
 
 The `stop-slop` sub-skill is self-contained: just read `SKILL.md` and the three reference files in `references/` as needed.
 
-The `craftsmanship` sub-skill is self-contained by design: `SKILL.md` plus five reference files (`anti-vibe-code.md`, `anti-slop-design.md`, `craft-details.md`, `prose-git.md`, `quality-gates.md`). It also ships a Cursor rules export at `exports/craftsmanship.mdc` for use outside Claude/GLM/ClawHub environments.
+The `craftsmanship` sub-skill is self-contained by design: `SKILL.md` plus six reference files (`anti-vibe-code.md`, `anti-slop-design.md`, `craft-details.md`, `prose-git.md`, `quality-gates.md`, `design-sources.md`). Load references on demand — the routing table decides which; loading everything at once defeats the router. It also ships a Cursor rules export at `exports/craftsmanship.mdc` for use outside Claude/GLM/ClawHub environments.
 
 ## When NOT to trigger
 

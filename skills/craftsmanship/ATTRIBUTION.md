@@ -33,4 +33,8 @@ Not merged, and not uncredited: `skills/code-review` (upstream: `awesome-skills/
 - **awesome-skills** — `code-review`, kept as a sibling sub-skill.
 - The authors of the five external repos and the Pangram Labs research above. Any errors in the merged synthesis are this repo's, not theirs.
 
+## Pointed sources (cataloged, not merged)
+
+`references/design-sources.md` catalogs third-party design sites — component libraries, generators, galleries — with license labels verified on 2026-10-13. These are pointers the agent may pull from or suggest to a user; **no content from those sites is merged into this skill**. License labels are as verified on that date; the reference instructs re-verification at the source before copying anything.
+
 If you redistribute `craftsmanship`, keep this file and the per-file credits with it.

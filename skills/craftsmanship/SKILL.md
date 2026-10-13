@@ -13,6 +13,8 @@ AI-generated work fails that test in two predictable ways. In code, it produces 
 
 This skill exists to break that default. It merges two tracks with their own reference files, plus a lighter third track for prose and git communications. Load the reference you need, apply the workflow, run the gates before shipping.
 
+**Load on demand.** This SKILL.md is the only always-load surface. The reference files are routed by task — loading all six at once defeats the router and burns context on rules the task never touches. Read the routing table, load only what the work needs.
+
 ## The craft contract
 
 Four rules that hold across both tracks. They are explained here once because they explain every specific rule that follows.
@@ -33,6 +35,7 @@ Identify what the user is working on, then load the matching reference. Most rea
 | Typography, motion, interaction detail work | [references/craft-details.md](references/craft-details.md) | Type scales and pairing rules, motion physics and timing, the 8-state interactive system, browser surfaces, spacing geometry |
 | README, docs, UI copy, commit messages, PR descriptions, changelogs | [references/prose-git.md](references/prose-git.md) | AI prose patterns to kill, the stop-slop scoring rubric, conventional commits without AI tells |
 | Before delivering anything user-facing | [references/quality-gates.md](references/quality-gates.md) | The Design Read protocol, Three Dials, phase loop, and the pre-emit gates for code and UI |
+| Need copyable component code, generators, or design references to suggest | [references/design-sources.md](references/design-sources.md) | License-labeled catalog of code sources (copy, then calibrate), value generators, look-only galleries, and the five-rule copying discipline |
 
 Typical combinations:
 
@@ -40,6 +43,7 @@ Typical combinations:
 - "This module looks AI-generated, fix it" → anti-vibe-code → quality-gates (code gate).
 - "Write the README for this" → prose-git alone.
 - "Make a landing page and don't make it look like every AI site" → all four, in the order above.
+- "Find me components I can actually copy" / "what should this look like? I have no idea" → design-sources alone (pick the mode: pull code, or suggest galleries).
 
 ## The workflow
 
@@ -86,4 +90,4 @@ The failure mode this skill must avoid: producing a new template. Perfectly unif
 
 ## Attribution
 
-This skill is an original synthesis commissioned for this repo, merging the repo's own sub-skills with five external sources. See [ATTRIBUTION.md](ATTRIBUTION.md) for the full list and licenses; upstream material retains its original licenses and is credited in each reference file.
+This skill is an original synthesis commissioned for this repo, merging the repo's own sub-skills with six external sources. See [ATTRIBUTION.md](ATTRIBUTION.md) for the full list and licenses; upstream material retains its original licenses and is credited in each reference file. Third-party design sites are cataloged with license labels in [references/design-sources.md](references/design-sources.md) — pointers only, nothing merged.

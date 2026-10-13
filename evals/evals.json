@@ -63,6 +63,13 @@
       "prompt": "build a landing page for my freight-dispatch SaaS - but please don't make it look like the generic AI sites, I want it to feel like a real company built it",
       "expected_output": "Applies craftsmanship (full stack of tracks): outputs a Design Read line first (freight dispatchers, chosen world, dials V/M/D). Picks a committed archetype (likely Technical Dense Terminal for the ops audience - not default purple SaaS). No gradient blobs, no 3-card grids, no eyebrow labels; tabular numerals; 8-state buttons; one authored motion moment; real dispatch-domain copy ('Track a load', not 'Transform your logistics'). Ends with the final assertion question before delivering.",
       "files": []
+    },
+    {
+      "id": 10,
+      "name": "craftsmanship-design-sources-copy-and-suggest",
+      "prompt": "I'm building a marketing site with shadcn and I have no design direction. Can you find me some components I can actually copy - and maybe some sites to look at for inspiration?",
+      "expected_output": "Applies craftsmanship (design-sources reference): separates the two asks. Offers at most 2 code sources matched to the shadcn stack (e.g., Magic UI, Aceternity UI, or Animate UI) with license labels stated, and 2-3 look-only galleries matched to the no-direction signal (real-app polish vs avant-garde vs restraint) asking the user to pick what resonates. Stays under 5 links total. If it proceeds to copy a component, it states the discipline: license checked, mechanics lifted not identity, re-skinned to archetype tokens, provenance line in the commit.",
+      "files": []
     }
   ]
 }

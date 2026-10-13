@@ -30,6 +30,8 @@
 2. Peça coisas como "polish this landing page", "this README sounds like AI, fix it", "tighten up this function", "review my PR", "are these tests any good", "write a commit message for these changes", ou "this code looks AI-generated, make it human" / "de-slop my app" (essas vão pro craftsmanship).
 3. A skill raiz encaminha automaticamente para a sub-skill certa.
 
+> **Disciplina de tokens:** cada `SKILL.md` é a única superfície always-load. Os references são carregados sob demanda pela tabela de roteamento — carregar tudo junto derrota o roteador e queima contexto com regras que a tarefa nem usa. Isso vale pro craftsmanship (6 references) e pro code-review (30+ arquivos por linguagem): leia o roteamento, carregue só o que a tarefa pede.
+
 ### Estrutura
 
 ```
@@ -41,7 +43,7 @@ theskill/
 │   ├── craftsmanship/             # BIG SKILL: anti-vibe coding + design (síntese original)
 │   │   ├── SKILL.md               # roteador + contrato de craft + hard bans
 │   │   ├── references/            # anti-vibe-code, anti-slop-design, craft-details,
-│   │   │                          #   prose-git, quality-gates
+│   │   │                          #   prose-git, quality-gates, design-sources
 │   │   ├── exports/craftsmanship.mdc  # export p/ Cursor rules
 │   │   └── ATTRIBUTION.md         # fontes upstream e licenças
 │   ├── impeccable/                # upstream: pbakaus/impeccable v4.5.2 (Apache 2.0)
@@ -63,7 +65,7 @@ theskill/
 │   ├── code-impeccable/SKILL.md   # original
 │   ├── test-craft/SKILL.md        # original
 │   └── commit-craft/SKILL.md      # original
-├── evals/evals.json               # 6 casos de teste
+├── evals/evals.json               # 10 casos de teste
 └── scripts/                       # helpers compartilhados (futuro)
 ```
 
@@ -100,6 +102,8 @@ theskill/
 1. Install the skill in your ClawHub environment.
 2. Ask things like "polish this landing page", "this README sounds like AI, fix it", "tighten up this function", "review my PR", "are these tests any good", "write a commit message for these changes", or "this code looks AI-generated, make it human" / "de-slop my app" (those route to craftsmanship).
 3. The root skill routes automatically to the right sub-skill.
+
+> **Token discipline:** each `SKILL.md` is the only always-load surface. Reference files load on demand via the routing table — loading everything at once defeats the router and burns context on rules the task never touches. Applies to craftsmanship (6 references) and code-review (30+ per-language files) alike: read the routing, load only what the work needs.
 
 ### Attribution & licensing
 

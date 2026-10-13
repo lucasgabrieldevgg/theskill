@@ -66,6 +66,13 @@ The test: a senior reads the result and cannot tell a machine wrote it. Decision
 - PRs: summary → motivation → changes → testing (always) → screenshots (UI) → breaking → rollback → reviewer focus.
 - Changelogs: user perspective, Keep-a-Changelog groups — never a commit dump.
 
+## Copying third-party components (condensed)
+
+- License before likeness: verify at the source; CC BY needs an attribution comment; unknown license = look-only; paid = don't lift without the purchase.
+- Copy mechanics, not identity — re-skin to the project's archetype tokens; at most one lifted component per source per project; it still passes the slop and 7-axis gates.
+- Provenance line in the commit: `adapted from {source} ({license})`.
+- Full license-labeled catalog (Magic UI, Aceternity, HyperUI, DaisyUI, Flowbite, Preline, Animate UI, Hero Patterns, generators, galleries): `skills/craftsmanship/references/design-sources.md` in the `theskill` repo.
+
 ## Final assertion before any delivery
 
 > Does this read as crafted by a disciplined professional with respect for the user's attention — or does any part look generated from a prompt?
