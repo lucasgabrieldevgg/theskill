@@ -1,6 +1,6 @@
 # Attribution & Sources
 
-`craftsmanship` is an original synthesis commissioned for this repo, created by merging this repo's own sub-skills with six external sources (five repos and one research body). The synthesis, structure, and merged rule set are MIT (same as this repo's originals). Upstream material retains its original license; each reference file credits its sources inline.
+`craftsmanship` is an original synthesis commissioned for this repo, created by merging this repo's own sub-skills with external sources. As of v2.0.0 it carries three tracks — process (new), code, and prose/git — after the design track moved to its own complete skill, the `design` repo. The synthesis, structure, and merged rule set are MIT (same as this repo's originals). Upstream material retains its original license; each reference file credits its sources inline.
 
 ## From this repo (merged in, MIT or upstream licenses as noted)
 
@@ -18,23 +18,26 @@ Not merged, and not uncredited: `skills/code-review` (upstream: `awesome-skills/
 
 | Source | What was merged | License |
 | --- | --- | --- |
+| `obra/superpowers` (v7.0.0) | The entire process track (`references/the-process.md`, added v2.0.0): brainstorming with hard gates, plan structure and task right-sizing, TDD iron law and red-green discipline, inline-execution rulings/ledger, the four-phase systematic debugging method with the 3-fixes architecture stop, review request/reception protocol, evidence-before-claims verification, branch finishing menu. Adapted to this repo's craft framing; behavioral content is theirs | MIT — © 2025 Jesse Vincent |
 | `ericchen931209/vibe-slop-detector` — TAXONOMY.md | The S1–S13 slop taxonomy, severity levels, detection signals, scoring weights and bands (S14 is original to this repo) | As upstream |
-| `wwewtech/anti-slop-design` | The banned-trope matrix, four archetypes with CSS tokens, UX axioms (1-to-3, 85% law), 8-state system, Emil Kowalski motion matrix, 7-axis gate, before/after table | MIT |
-| `shahrukh-hack/vibe-superkit` | TASTE_GUIDE aesthetic personalities, slop-vs-craft table, micro-interaction principles, anti-ai-slop rules | As upstream |
-| `shinewinsu/vibe-frontend-design` | Design Read protocol, Three Dials, the 10-item death list, layout patterns, surface hierarchy levels, typography engineering scale | As upstream |
+| `shahrukh-hack/vibe-superkit` | Micro-interaction principles and anti-ai-slop rules (the surviving code-track portions; the taste/design portions moved with the design track) | As upstream |
 | `ConardLi/garden-skills` — web-design-engineer | Read-before-ask calibration pattern, context-gathering priority, code-over-screenshots principle | As upstream |
 | Pangram Labs — code-forensics writeups (pangram.com) | The "why AI code is recognizable" framing in `references/anti-vibe-code.md`: tells are structural (name distribution, comment-to-code ratio, error-handling shape, style uniformity), not stylistic; detectors exploit statistical regularities that human code violates naturally | Cited as research; © Pangram Labs |
 
 ## Individual credits
 
-- **Emil Kowalski** (emilkowalski.dev) — the duration-by-frequency decision matrix, easing rules, and tactile-feedback principles in `references/craft-details.md` are his motion work, encountered via `wwewtech/anti-slop-design` and `shahrukh-hack/vibe-superkit`. Full credit to him.
+- **Jesse Vincent** (obra) and the superpowers contributors — the execution methodology in `references/the-process.md` is their work, merged under MIT with adaptation.
 - **Hardik Pandya** — the `stop-slop` prose system (rules, rubric, catalogs).
 - **Paul Bakaus** — the `impeccable` craft-floor and bounded-verification principle.
 - **awesome-skills** — `code-review`, kept as a sibling sub-skill.
-- The authors of the five external repos and the Pangram Labs research above. Any errors in the merged synthesis are this repo's, not theirs.
+- The authors of the external repos and the Pangram Labs research above. Any errors in the merged synthesis are this repo's, not theirs.
+
+## The design track moved out (v2.0.0)
+
+The design references (`anti-slop-design.md`, `craft-details.md`, `design-sources.md`, and the UI gates from `quality-gates.md`) moved to the `design` repo (`lucasgabrieldevgg/design`) so both disciplines could be complete. That repo carries the full design lineage and credits: `wwewtech/anti-slop-design` (MIT), `shinewinsu/vibe-frontend-design`, Emil Kowalski's motion principles, `pbakaus/impeccable`'s design-side rules — plus five new sources merged there (`Nutlope/hallmark`, `oil-oil/oil-ui`, `xiaopu-ai/web-design`, `dominikmartn/nothing-design-skill`, `Gesso-Build/skills`). See that repo's ATTRIBUTION.md.
 
 ## Pointed sources (cataloged, not merged)
 
-`references/design-sources.md` catalogs third-party design sites — component libraries, generators, galleries — with license labels verified on 2026-10-13. These are pointers the agent may pull from or suggest to a user; **no content from those sites is merged into this skill**. License labels are as verified on that date; the reference instructs re-verification at the source before copying anything.
+`references/design-sources.md` moved to the `design` repo with the rest of the design track (2026-10-20). It catalogs third-party design sites with license labels verified on 2026-10-13 — pointers only; nothing from those sites is merged into either skill.
 
 If you redistribute `craftsmanship`, keep this file and the per-file credits with it.

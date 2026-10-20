@@ -1,19 +1,29 @@
 ---
-description: craftsmanship — anti-vibe coding + design. Apply when writing, refactoring, reviewing, or polishing any code, UI, docs, or commits, especially to remove AI tells / template look.
+description: craftsmanship — anti-vibe coding: process, code, and prose. Apply when planning, building, debugging, testing, refactoring, reviewing, or polishing any code, docs, or commits, especially to remove AI tells. Visual design routes to the sibling `design` skill.
 globs:
 alwaysApply: true
 ---
 
 # craftsmanship (Cursor rules export)
 
-The test: a senior reads the result and cannot tell a machine wrote it. Decisions instead of defaults, domain language instead of placeholders, restraint instead of decoration.
+The test: a senior reads the result and cannot tell a machine wrote it. Decisions instead of defaults, domain language instead of placeholders, evidence instead of claims, restraint instead of decoration.
 
 ## Craft contract
 
-1. **Decide, don't default.** Every name, palette, rhythm is traceable to a choice. The statistical middle is what "looks AI" means.
-2. **Speak the domain's language.** `invoiceDueDate`, `dunningLevel` — never `data`, `item`, `processItem`. Interfaces sound like the domain's operators, not like a template.
+1. **Decide, don't default.** Every name, structure, test is traceable to a choice. The statistical middle is what "looks AI" means.
+2. **Speak the domain's language.** `invoiceDueDate`, `dunningLevel` — never `data`, `item`, `processItem`.
 3. **Restraint is a feature.** Audit for what can be removed before adding anything.
 4. **Verify the built result, not the intention.**
+
+## Process: the loop that prevents slop (from obra/superpowers, MIT)
+
+- **Brainstorm before building.** One open question that gets the human describing (specifics, not menus). Play understanding back in 200–300 words; mark guesses as guesses. HARD GATE: nothing gets built — scaffolding, deps, product code — until the human approves the understood scope.
+- **Plan in bite-sized tasks** (2–5 min each), each with exact file paths, consumes/produces interfaces (exact signatures), and steps that are ONE action with a checkable result. Plan self-review: every spec requirement has a task; no step that decides nothing; no code body the signature+tests already determine.
+- **TDD iron law: no production code without a failing test first.** RED (minimal test, spec's exact values) → verify it fails *for the right reason* → GREEN (simplest code that passes, YAGNI) → verify pass AND the whole suite → REFACTOR → commit. Code written before its test gets deleted, not adapted. "I'll test after", "too simple to test", "TDD slows me down" are rationalizations, all fatal.
+- **Debug: no fixes without root cause.** Read the error completely; reproduce; check recent changes; instrument component boundaries (log in/out per layer); trace bad values to the source. One hypothesis at a time, tested minimally. **3+ failed fixes = architecture problem: STOP, question the pattern with the human — never attempt fix #4.**
+- **Review with fresh eyes and crafted context** — never your session history; findings return by severity (Critical blocks, Important before proceeding, Minor noted). Receiving review: no performative agreement, no gratitude theater; verify before implementing; unclear items stop everything; push back with technical reasoning when wrong; YAGNI check before "implementing properly" (grep for actual usage).
+- **Verify: evidence before claims, always.** "Tests pass" requires this run's output showing 0 failures. "Fixed" requires the original symptom tested. Subagent "success" requires a VCS diff check. "Should/probably/seems to" = verification was skipped.
+- **Integration is the human's decision.** Green suite on the tree about to be integrated → present merge/PR/keep menu and wait. Discard only on explicit request, confirmed by the typed word.
 
 ## Code: the slop taxonomy (never ship these)
 
@@ -22,77 +32,36 @@ The test: a senior reads the result and cannot tell a machine wrote it. Decision
 - **Silent error swallowing:** `except: pass`, `catch {}`, log-and-continue. Errors recover, rethrow with context, or fail fast — never print-and-continue.
 - **God functions** (>50 lines MEDIUM, >100 HIGH, >7 params); **copy-paste clones** (>80% similarity, except coincidental); **verbosity inflation** (`if x: return True else: return False`); **redundant docstrings** restating the signature; **defensive over-checking** (`== True`, `len(x) > 0`, checks the types already prove); **dead imports**; **TODO graveyards** without ticket refs; **magic numbers** (name them: `RETRY_DELAY_SECONDS`).
 - **Comments explain why, never what.** Business rules, trade-offs, workaround links, warnings. First person OK if the codebase does it.
-- **Uniformity is also a tell.** Match the codebase's local dialect; one documented deviation beats timid consistency everywhere.
+- **Uniformity is also a tell.** Match the codebase's local dialect; one documented deviation beats timid consistency everywhere. Match S14: match the surrounding dialect.
 - **Never mix polish with behavior changes.** Bugs found mid-polish get flagged, not fixed.
 - Idioms: TS — `unknown` + narrowing, no `any`, early returns. Python — comprehensions, pathlib, type hints on public APIs only. Go — `%w` wrapping, table tests. Rust — no `.unwrap()` outside tests. SQL — explicit columns, no `SELECT *`.
 
-## Design: the banned tropes (never ship these)
+## Prose & git: no chatbot cadence
 
-- Purple/indigo radial gradient blobs; gradient text; glowing card borders; glassmorphism on every surface.
-- Three identical icon-heading-text cards as page structure; nested cards.
-- Emoji as icons — one library, one stroke weight (Lucide/Phosphor/Heroicons).
-- Uppercase tracked-out eyebrow labels; one-word italic/gradient accents in headlines.
-- Vanity stats ("99.9% uptime") with no source; dead placeholders (placeholder.com, hotlinked Unsplash, lorem ipsum in shipped copy).
-- Pure `#000`/`#fff` in dark mode — tinted charcoal (`#09090b`) + stepped text (`zinc-100 → zinc-400`).
-- Same-fade-everywhere entrances; `transition: all 0.3s ease` wet-cardboard motion.
-- Unmodified Inter as the entire type system.
+- Kill: throat-clearing openers ("here's the thing"), "not X, but Y" binary contrasts, em-dash cadence, false agency ("I'd be happy to"), hedges and hollow superlatives.
+- Commits: imperative subjects ≤ 50 chars, why-bodies, testing sections; "leverage/seamlessly/robust solution" never enter `git log` — it's forever.
+- Prose gate: five dimensions (directness, rhythm, trust, authenticity, density) ≥ 35/50 to ship.
 
-## Design: the system
+## Gates before delivery
 
-- **Pick one archetype and commit:** Quiet Luxury SaaS (dark `#09090b`, cobalt accent, radius 6/10/14), Technical Terminal (dense, emerald + amber-alert, radius 2/4), Editorial (cream `#faf8f5`, serif display, radius 0/2), Warm Tactile (`#f4f4f0`, ochre, radius 8/16/24).
-- **Layouts:** bento (hero tile 2×2), split-screen 5/7, asymmetric 12-col 7:5, masonry, timeline rail, SaaS shell (240px sidebar + header + `max-w-7xl`), dashboard (control bar → 4-KPI row → 70/30 split → table).
-- **Surface stack:** canvas → surface (+1 step, hairline border) → overlay/hover (+1, border brightens) → modal (`shadow-2xl`, own focus ring).
-- **UX axioms:** 1 primary + max 3 secondary per zone; design for the 85% scenario; one KPI per viewport; one global filter bar; mobile linearity.
-- **Type:** max 2 families; display with negative tracking (-0.02 to -0.04em); body 65–75ch, leading 1.6; `tabular-nums` on all metrics; obvious scale steps.
-- **Spacing:** 8pt ladder (4/8/12/16/24/32/48/64); nested radius = outer − padding; icon gap 1.5–2 sized to x-height.
-- **Motion:** 100+/day actions = 0ms; standard 120–180ms; modals 200–250ms; `ease-in` banned; `cubic-bezier(0.23,1,0.32,1)`; press scale 0.97 at 60ms; popovers scale from trigger; one authored entrance moment with 50–80ms stagger; `prefers-reduced-motion` respected.
-- **8 states on every primitive:** default, hover, focus-visible, active, disabled, loading, error, success.
-- **Browser surfaces:** theme `::selection`, caret, scrollbars, focus rings, underline offset — the cheapest human signal.
+One-line Read first (artifact/audience/scene/stack — if you can't state it, you don't understand it). Code gate: slop score HIGH=10/MED=5/LOW=2 per 100 lines — 0–20 clean, 21–40 fix the HIGHs, 41+ not shippable; behavior preserved; no polish mixed with behavior change; the `git log` test (each hunk's why is guessable). Process gate: no completion claims without fresh command output. Final assertion: *crafted with respect for the user's attention, or generated from a prompt?* Eliminate prompt-slop, don't soften it. Then ship and stop polishing.
 
-## Workflow
+## Visual design
 
-1. **Design Read first line:** `building [artifact] for [audience], in [world], dials [V/M/D], stack [...]`. Code side: what does this module do, for whom, in which scene.
-2. **Diagnose** against the catalogs above (flag, don't fix yet).
-3. **Prescribe** the smallest honest diff, grouped in batches.
-4. **Verify:** behavior preserved, form state and handlers survive restyles.
-5. **Gate:** UI — 7 axes each ≥ 4 (anti-slop purity, UX speed, type discipline, spacing geometry, motion/states, a11y, responsive). Code — slop score ≤ 20 clean, ≤ 40 acceptable with HIGHs fixed, 41+ blocked. Prose — ≥ 35/50 on directness/rhythm/trust/authenticity/density.
-
-## Prose & git (condensed)
-
-- No throat-clearing ("here's the thing"), no hedging adverbs (really/just/simply/actually), no em-dash cadence, no "not X, but Y" contrasts.
-- Active voice with human actors: decisions don't "emerge", data doesn't "tell us" — someone decides, someone concludes.
-- UI copy: controls name their action; errors name the problem AND the recovery; empty states say what appears and what to do.
-- Commits: `feat(auth):` imperative ≤ 50 chars, body = why not what, no "leverage/seamlessly/robust" in history, `Fixes #N`.
-- PRs: summary → motivation → changes → testing (always) → screenshots (UI) → breaking → rollback → reviewer focus.
-- Changelogs: user perspective, Keep-a-Changelog groups — never a commit dump.
-
-## Copying third-party components (condensed)
-
-- License before likeness: verify at the source; CC BY needs an attribution comment; unknown license = look-only; paid = don't lift without the purchase.
-- Copy mechanics, not identity — re-skin to the project's archetype tokens; at most one lifted component per source per project; it still passes the slop and 7-axis gates.
-- Provenance line in the commit: `adapted from {source} ({license})`.
-- Full license-labeled catalog (Magic UI, Aceternity, HyperUI, DaisyUI, Flowbite, Preline, Animate UI, Hero Patterns, generators, galleries): `skills/craftsmanship/references/design-sources.md` in the `theskill` repo.
-
-## Final assertion before any delivery
-
-> Does this read as crafted by a disciplined professional with respect for the user's attention — or does any part look generated from a prompt?
-
-If any element feels like prompt-slop: eliminate it, don't soften it. Ship at *decided and verified* — not at *perfect*.
-
----
+UI tropes, archetypes, layout, typography/motion craft, and the UI gates live in the sibling **`design`** skill (lucasgabrieldevgg/design) — load it for how things look; this file governs how things are built and written.
 
 ## Sources & attribution
 
 This file is the Cursor-rules export of the `craftsmanship` skill — an original synthesis (MIT for the synthesis; upstream material keeps its own licenses). It merges material from:
 
+- `obra/superpowers` (MIT — the process track: brainstorming, planning, TDD, systematic debugging, review, verification; © 2025 Jesse Vincent)
 - `ericchen931209/vibe-slop-detector` (slop taxonomy S1–S13)
-- `wwewtech/anti-slop-design` (MIT — banned tropes, archetypes, 8-state system, 7-axis gate)
-- `shahrukh-hack/vibe-superkit` (taste guide, micro-interaction principles)
-- `shinewinsu/vibe-frontend-design` (Design Read, Three Dials, layout dictionary)
+- `shahrukh-hack/vibe-superkit` (micro-interaction principles)
 - `ConardLi/garden-skills` — web-design-engineer (calibration workflow)
 - Pangram Labs code-forensics writeups (why AI code is detectable)
-- Motion principles by **Emil Kowalski** (emilkowalski.dev)
 - `hardikpandya/stop-slop` (prose rules and scoring)
-- `pbakaus/impeccable` v4.5.2 (Apache 2.0 — craft-floor, verification)
+- `pbakaus/impeccable` v4.5.2 (Apache 2.0 — craft-floor, bounded verification)
+
+The design lineage (`wwewtech/anti-slop-design`, `shinewinsu/vibe-frontend-design`, Emil Kowalski's motion principles) moved to the `design` repo with the design track (v2.0.0) — see that repo's ATTRIBUTION.md.
 
 Full per-source credits and licenses: `skills/craftsmanship/ATTRIBUTION.md` in the `theskill` repo. Keep this section when redistributing.

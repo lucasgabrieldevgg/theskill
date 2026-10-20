@@ -1,8 +1,8 @@
 # theskill
 
-> **PT** — Um compilado de skills de polimento de software: UI, prosa, código, testes, commits e PR reviews — e agora também a Big Skill **craftsmanship** de Anti Vibe Coding + Design. Sete sub-skills especializadas sob um único roteador.
+> **PT** — Um compilado de skills de polimento de software: processo, código, prosa, testes, commits e PR reviews — agora com a Big Skill **craftsmanship** v2.0.0 de Anti Vibe Coding (processo + código + prosa, com a metodologia do `obra/superpowers` fundida). O design visual virou skill completa no repo irmão [`design`](https://github.com/lucasgabrieldevgg/design).
 >
-> **EN** — A bundled skill collection for polishing software deliverables: UI, prose, code, tests, commits, and PR reviews — now including the merged **craftsmanship** big skill for Anti Vibe Coding + Design. Seven specialized sub-skills under a single router.
+> **EN** — A bundled skill collection for polishing software deliverables: process, code, prose, tests, commits, and PR reviews — now with the **craftsmanship** v2.0.0 big skill for Anti Vibe Coding (process + code + prose, merging `obra/superpowers`' methodology). Visual design became its own complete skill in the sibling [`design`](https://github.com/lucasgabrieldevgg/design) repo.
 
 ---
 
@@ -16,7 +16,7 @@
 
 | Sub-skill | Origem | Para que serve |
 | --- | --- | --- |
-| **craftsmanship** | Big Skill original deste repo (síntese) | **Anti Vibe Coding + Design**: remove 'cara de IA' do código (taxonomia de slop S1–S14, naming de domínio, comentários honestos) e da UI (16 tropos banidos, 4 arquétipos com tokens, tipografia/motion/8 estados, quality gates). Inclui export pro Cursor (`exports/craftsmanship.mdc`) e é compatível com Claude Code, GLM/Z.ai e ClawHub. Fontes: vibe-slop-detector, anti-slop-design, vibe-superkit, vibe-frontend-design, garden-skills, pesquisas do Pangram Labs, motion de Emil Kowalski + as skills deste repo (ver `skills/craftsmanship/ATTRIBUTION.md`). |
+| **craftsmanship** | Big Skill original deste repo (síntese) — **v2.0.0** | **Anti Vibe Coding em três tracks**: PROCESSO (loop brainstorm→plano→TDD→debug sistemático→review→verificação, fundido do `obra/superpowers` MIT — gates duros, iron laws), CÓDIGO (taxonomia de slop S1–S14, naming de domínio, comentários honestos) e PROSA/GIT (sem cadência de chatbot). O track de DESIGN (16 tropos, 4 arquétipos, craft de tipografia/motion) migrou pro repo irmão [`design`](https://github.com/lucasgabrieldevgg/design) pra ambas ficarem completas. Inclui export pro Cursor (`exports/craftsmanship.mdc`). Fontes: obra/superpowers, vibe-slop-detector, vibe-superkit, garden-skills, Pangram Labs + lineage de design no repo `design` (ver `skills/craftsmanship/ATTRIBUTION.md`). |
 | **impeccable** | [`pbakaus/impeccable`](https://github.com/pbakaus/impeccable) v4.5.2 (Apache 2.0) — por Paul Bakaus | Polimento de interfaces front-end: sites, dashboards, componentes, design systems, tipografia, spacing, motion, acessibilidade. Inclui 45 arquivos de referência e scripts de browser automation. |
 | **stop-slop** | [`hardikpandya/stop-slop`](https://github.com/hardikpandya/stop-slop) — por Hardik Pandya | Remover padrões de escrita típicos de IA: filler phrases, structures formulaicas, voice distante, em-dashes, hedges. |
 | **code-impeccable** | Original neste repo | Polimento de código sem mudar comportamento: nomes, dead code, estrutura, padrões idiomáticos, legibilidade. |
@@ -27,10 +27,10 @@
 ### Como usar
 
 1. Instale a skill no seu ambiente ClawHub.
-2. Peça coisas como "polish this landing page", "this README sounds like AI, fix it", "tighten up this function", "review my PR", "are these tests any good", "write a commit message for these changes", ou "this code looks AI-generated, make it human" / "de-slop my app" (essas vão pro craftsmanship).
+2. Peça coisas como "plan and build this feature right", "this README sounds like AI, fix it", "tighten up this function", "review my PR", "are these tests any good", "write a commit message for these changes", ou "this code looks AI-generated, make it human" / "de-slop my code" (essas vão pro craftsmanship). Pedidos visuais ("fix the design", "make it look professional", "de-slop my app") roteiam pra skill irmã `design`.
 3. A skill raiz encaminha automaticamente para a sub-skill certa.
 
-> **Disciplina de tokens:** cada `SKILL.md` é a única superfície always-load. Os references são carregados sob demanda pela tabela de roteamento — carregar tudo junto derrota o roteador e queima contexto com regras que a tarefa nem usa. Isso vale pro craftsmanship (6 references) e pro code-review (30+ arquivos por linguagem): leia o roteamento, carregue só o que a tarefa pede.
+> **Disciplina de tokens:** cada `SKILL.md` é a única superfície always-load. Os references são carregados sob demanda pela tabela de roteamento — carregar tudo junto derrota o roteador e queima contexto com regras que a tarefa nem usa. Isso vale pro craftsmanship (4 references) e pro code-review (30+ arquivos por linguagem): leia o roteamento, carregue só o que a tarefa pede.
 
 ### Estrutura
 
@@ -40,12 +40,13 @@ theskill/
 ├── README.md                      # este arquivo (bilíngue)
 ├── .gitignore
 ├── skills/
-│   ├── craftsmanship/             # BIG SKILL: anti-vibe coding + design (síntese original)
+│   ├── craftsmanship/             # BIG SKILL: anti-vibe coding v2.0.0 (processo+código+prosa)
 │   │   ├── SKILL.md               # roteador + contrato de craft + hard bans
-│   │   ├── references/            # anti-vibe-code, anti-slop-design, craft-details,
-│   │   │                          #   prose-git, quality-gates, design-sources
+│   │   ├── references/            # anti-vibe-code, the-process (do superpowers),
+│   │   │                          #   prose-git, quality-gates
 │   │   ├── exports/craftsmanship.mdc  # export p/ Cursor rules
 │   │   └── ATTRIBUTION.md         # fontes upstream e licenças
+│   │                              # (o track de design migrou p/ repo irmão `design`)
 │   ├── impeccable/                # upstream: pbakaus/impeccable v4.5.2 (Apache 2.0)
 │   │   ├── SKILL.md
 │   │   ├── LICENSE.upstream
@@ -65,7 +66,7 @@ theskill/
 │   ├── code-impeccable/SKILL.md   # original
 │   ├── test-craft/SKILL.md        # original
 │   └── commit-craft/SKILL.md      # original
-├── evals/evals.json               # 10 casos de teste
+├── evals/evals.json               # 13 casos de teste
 └── scripts/                       # helpers compartilhados (futuro)
 ```
 
@@ -89,7 +90,7 @@ theskill/
 
 | Sub-skill | Origin | What it does |
 | --- | --- | --- |
-| **craftsmanship** | Original big-skill synthesis in this repo | **Anti Vibe Coding + Design**: remove AI tells from code (slop taxonomy S1–S14, domain naming, honest comments) and from UI (16 banned tropes, 4 archetypes with tokens, typography/motion/8-state craft, quality gates). Ships a Cursor rules export (`exports/craftsmanship.mdc`); works on Claude Code, GLM/Z.ai, and ClawHub. Sources: vibe-slop-detector, anti-slop-design, vibe-superkit, vibe-frontend-design, garden-skills, Pangram Labs research, Emil Kowalski motion principles + this repo's sub-skills (see `skills/craftsmanship/ATTRIBUTION.md`). |
+| **craftsmanship** | Original big-skill synthesis in this repo — **v2.0.0** | **Anti Vibe Coding in three tracks**: PROCESS (the brainstorm→plan→TDD→systematic-debug→review→verify loop, merged from `obra/superpowers` MIT — hard gates, iron laws), CODE (slop taxonomy S1–S14, domain naming, honest comments), and PROSE/GIT (no chatbot cadence). The DESIGN track (16 banned tropes, 4 archetypes, typography/motion craft) moved to the sibling [`design`](https://github.com/lucasgabrieldevgg/design) repo so both could be complete. Ships a Cursor rules export (`exports/craftsmanship.mdc`). Sources: obra/superpowers, vibe-slop-detector, vibe-superkit, garden-skills, Pangram Labs + design lineage in the `design` repo (see `skills/craftsmanship/ATTRIBUTION.md`). |
 | **impeccable** | [`pbakaus/impeccable`](https://github.com/pbakaus/impeccable) v4.5.2 (Apache 2.0) — by Paul Bakaus | Frontend interface polish: websites, dashboards, components, design systems, typography, spacing, motion, accessibility, error states, empty states. Ships with 45 reference files and browser-automation scripts. |
 | **stop-slop** | [`hardikpandya/stop-slop`](https://github.com/hardikpandya/stop-slop) — by Hardik Pandya | Remove AI writing patterns: filler phrases, formulaic structures, narrator-from-a-distance voice, em-dashes, hollow hedging. |
 | **code-impeccable** | Original to this repo | Code polish without behavior change: naming, dead code, structure, idiomatic patterns, readability. |
@@ -100,10 +101,10 @@ theskill/
 ### How to use
 
 1. Install the skill in your ClawHub environment.
-2. Ask things like "polish this landing page", "this README sounds like AI, fix it", "tighten up this function", "review my PR", "are these tests any good", "write a commit message for these changes", or "this code looks AI-generated, make it human" / "de-slop my app" (those route to craftsmanship).
+2. Ask things like "plan and build this feature right", "this README sounds like AI, fix it", "tighten up this function", "review my PR", "are these tests any good", "write a commit message for these changes", or "this code looks AI-generated, make it human" / "de-slop my code" (those route to craftsmanship). Visual requests ("fix the design", "make it look professional", "de-slop my app") route to the sibling `design` skill.
 3. The root skill routes automatically to the right sub-skill.
 
-> **Token discipline:** each `SKILL.md` is the only always-load surface. Reference files load on demand via the routing table — loading everything at once defeats the router and burns context on rules the task never touches. Applies to craftsmanship (6 references) and code-review (30+ per-language files) alike: read the routing, load only what the work needs.
+> **Token discipline:** each `SKILL.md` is the only always-load surface. Reference files load on demand via the routing table — loading everything at once defeats the router and burns context on rules the task never touches. Applies to craftsmanship (4 references) and code-review (30+ per-language files) alike: read the routing, load only what the work needs.
 
 ### Attribution & licensing
 

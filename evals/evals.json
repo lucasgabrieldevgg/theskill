@@ -5,7 +5,7 @@
       "id": 1,
       "name": "ui-polish-landing-hero",
       "prompt": "polish this landing page hero — the headline feels generic and the CTA button has no visual weight. here's the JSX: <section><h1>Transform your business with our solution</h1><button>Learn more</button></section>",
-      "expected_output": "Applies impeccable sub-skill: diagnoses hierarchy/typography/contrast issues, proposes specific CSS or token changes (e.g., larger headline, primary button color, padding). Output is actionable, not 'make it pop'.",
+      "expected_output": "Routes within theskill to impeccable (generic UI refinement, no anti-AI-look signal): diagnoses hierarchy/typography/contrast issues, proposes specific CSS or token changes (e.g., larger headline, primary button color, padding). Output is actionable, not 'make it pop'. If the user adds 'make it not look AI-generated' / 'de-slop', routes to the sibling design skill instead.",
       "files": []
     },
     {
@@ -26,7 +26,7 @@
       "id": 4,
       "name": "commit-message-mixed-changes",
       "prompt": "write a commit message for these changes: I added JWT authentication to the user API, rejected expired tokens before decoding, and updated the docs to mention the new auth header",
-      "expected_output": "Applies commit-craft: identifies this should ideally be split into 3 commits (feat, fix, docs). For the combined commit, suggests 'feat(auth): add JWT authentication to user API' with a body explaining the implementation, the expired-token check, and the docs update. No AI tellss (no 'leverage', 'seamlessly', etc.). Imperative mood, <=50 char subject.",
+      "expected_output": "Applies commit-craft: identifies this should ideally be split into 3 commits (feat, fix, docs). For the combined commit, suggests 'feat(auth): add JWT authentication to user API' with a body explaining the implementation, the expired-token check, and the docs update. No AI tells (no 'leverage', 'seamlessly', etc.). Imperative mood, <=50 char subject.",
       "files": []
     },
     {
@@ -45,9 +45,9 @@
     },
     {
       "id": 7,
-      "name": "craftsmanship-de-slop-dashboard",
+      "name": "de-slop-dashboard-routes-to-design",
       "prompt": "my SaaS dashboard looks like every AI-generated app - dark background with purple gradient glows in the corners, three identical feature cards, emoji icons, and uppercase labels like OVERVIEW everywhere. fix it",
-      "expected_output": "Applies craftsmanship (design track): recognizes the banned-trope hits (gradient blobs, 3-card grid, emoji icons, screaming eyebrows). Prescribes one archetype (e.g., Quiet Luxury SaaS tokens), replacement layout (bento with hero tile), Lucide icon swap, sentence case. Runs the Design Read first, then the 7-axis gate before delivering. Commits to one visual world instead of restyling.",
+      "expected_output": "Routes to the sibling design skill (anti-AI-look signal): DE-SLOP mode recognizes the banned-trope hits (gradient blobs, 3-card grid, emoji icons, screaming eyebrows) AND checks structural sameness. Returns a ranked punch list, picks one archetype with tokens, prescribes grouped batches, runs the Design Read first. The craftsmanship code track applies to any component code the restyle touches, with the no-polish-with-behavior-change contract.",
       "files": []
     },
     {
@@ -59,16 +59,40 @@
     },
     {
       "id": 9,
-      "name": "craftsmanship-landing-bespoke",
+      "name": "create-landing-routes-to-design",
       "prompt": "build a landing page for my freight-dispatch SaaS - but please don't make it look like the generic AI sites, I want it to feel like a real company built it",
-      "expected_output": "Applies craftsmanship (full stack of tracks): outputs a Design Read line first (freight dispatchers, chosen world, dials V/M/D). Picks a committed archetype (likely Technical Dense Terminal for the ops audience - not default purple SaaS). No gradient blobs, no 3-card grids, no eyebrow labels; tabular numerals; 8-state buttons; one authored motion moment; real dispatch-domain copy ('Track a load', not 'Transform your logistics'). Ends with the final assertion question before delivering.",
+      "expected_output": "Routes to the sibling design skill (CREATE mode): Design Read line first (freight dispatchers, chosen world, dials, macrostructure family), three contrasting directions from different macrostructure families, likely Technical Terminal world - not default purple SaaS. No gradient blobs, no 3-card grids; tabular numerals; 8-state buttons; real dispatch-domain copy ('Track a load', not 'Transform your logistics'). Craftsmanship's code track governs the component code and its commit.",
       "files": []
     },
     {
       "id": 10,
-      "name": "craftsmanship-design-sources-copy-and-suggest",
+      "name": "design-sources-routes-to-design",
       "prompt": "I'm building a marketing site with shadcn and I have no design direction. Can you find me some components I can actually copy - and maybe some sites to look at for inspiration?",
-      "expected_output": "Applies craftsmanship (design-sources reference): separates the two asks. Offers at most 2 code sources matched to the shadcn stack (e.g., Magic UI, Aceternity UI, or Animate UI) with license labels stated, and 2-3 look-only galleries matched to the no-direction signal (real-app polish vs avant-garde vs restraint) asking the user to pick what resonates. Stays under 5 links total. If it proceeds to copy a component, it states the discipline: license checked, mechanics lifted not identity, re-skinned to archetype tokens, provenance line in the commit.",
+      "expected_output": "Routes to the design skill's design-sources reference (moved there in v2.0.0): separates the two asks, offers at most 2 code sources matched to the shadcn stack with license labels, and 2-3 look-only galleries matched to the no-direction signal. Under 5 links total. If copying proceeds: license checked, mechanics lifted not identity, re-skinned to archetype tokens, provenance line in the commit.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "name": "process-tdd-iron-law",
+      "prompt": "I need to add a retry feature to my API client — I already wrote the implementation while thinking it through, it's 40 lines, can you just write the tests for it now?",
+      "prompt_note": "tests the-process track (from obra/superpowers)",
+      "expected_output": "Applies the-process Phase 3: refuses test-after — code written before its test gets deleted, not kept as reference and not 'adapted while writing tests'. Explains why: tests-after verify the cases remembered, never the ones that would have been discovered; only a watched-failing test proves the test tests the right thing. Offers the RED-GREEN-REFACTOR path: minimal failing test with the spec's exact values, watch it fail for the right reason, minimal implementation, full suite, then refactor. If the user insists on keeping the code, their call - noted as an override.",
+      "files": []
+    },
+    {
+      "id": 12,
+      "name": "process-systematic-debugging",
+      "prompt": "this webhook intermittently returns 500s — I've tried adding a try/catch wrapper, then a retry, then a timeout increase. It's still failing. What should I try next?",
+      "prompt_note": "tests the 3-fixes architecture stop",
+      "expected_output": "Applies the-process Phase 4: three failed fixes = STOP — that is an architecture problem, not a hypothesis problem; do not attempt fix #4. Walks back to root cause: read the actual 500 error completely, reproduce consistently, check what the three fixes changed, instrument the component boundaries (log what enters/exits each layer), trace the bad value upstream. No fixes proposed until the failing layer is identified. Also flags that the try/catch wrapper and silent retry are S9-family error swallowing that hid the evidence.",
+      "files": []
+    },
+    {
+      "id": 13,
+      "name": "process-verification-before-completion",
+      "prompt": "quick sanity check before I demo — you refactored the billing module an hour ago, the tests should all still pass since you only renamed things, right?",
+      "prompt_note": "tests evidence-before-claims",
+      "expected_output": "Applies the-process Phase 6 (and the craft contract's verify-the-built-result): 'should pass' is not evidence — a green run only proves the tree it ran on. Runs the project's test command fresh, reads the output and exit code, and reports the actual result with the evidence — including any failure not caused by the rename, by name. No completion claim without the command's output in the current context; never 'it should be fine for the demo'.",
       "files": []
     }
   ]

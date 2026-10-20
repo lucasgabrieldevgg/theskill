@@ -1,69 +1,47 @@
 # quality-gates — decide before building, verify before shipping
 
-> Merged from: `shinewinsu/vibe-frontend-design` (Design Read, Three Dials), `wwewtech/anti-slop-design` (5-phase loop, 7-axis gate, MIT), and this repo's `code-impeccable` + `stop-slop` (verification layers). See ATTRIBUTION.md.
+> Merged from: `shinewinsu/vibe-frontend-design` (the decide-before-building principle), `wwewtech/anti-slop-design` (MIT — 5-phase loop), this repo's `code-impeccable` + `stop-slop` (verification layers), and `obra/superpowers` verification-before-completion (MIT — evidence-before-claims gate). The UI-side gates (Design Read, Three Dials, 7-axis UI gate) moved to the `design` skill with the design track. See ATTRIBUTION.md.
 
 Everything in this file exists to force the decisions *before* generation starts, and to catch slop *before* the user sees it. The pattern behind all AI-looking output is skipped decisions; the gates put the decisions back in.
 
-## The Design Read (mandatory first line)
+## The one-line read (mandatory first line)
 
-Before writing any HTML/CSS/component, output one line that pins the work. This closes the escape route to the statistical middle — once the read is stated, every choice has something to be checked against:
+Before writing any code, output one line that pins the work. This closes the escape route to the statistical middle — once the read is stated, every choice has something to be checked against:
 
-> **`Design Read: building [artifact type] for [audience], in [visual world], dials [V=? / M=? / D=?], stack [design system / components / motion].`**
+> **`Read: building [artifact] for [audience], in [scene], stack [key choices].`**
 
-Examples:
+- `Read: building a dunning module for the billing team, in the invoicing service, stack Python + Postgres + existing ledger client.`
+- `Read: building a CSV export for accountants who open it in Excel, in the reports page, stack TypeScript + streaming response.`
 
-- `Design Read: building an AI devtool landing page for staff engineers and indie hackers, in a Linear-style dark minimal world, dials [V=7 / M=6 / D=4], stack Tailwind + Lucide + Framer Motion springs.`
-- `Design Read: building a freight dispatcher dashboard for night-shift controllers, in a Technical Terminal world, dials [V=3 / M=2 / D=8], stack dense tables, tabular numerals, zero decorative motion.`
-
-For code work, the same discipline in one line: *what does this module do, for whom, in which scene* — the code-side Design Read. If the line cannot be written, the understanding is not there yet.
-
-## The Three Dials
-
-Calibrate the three axes from the Design Read; they are the reason "good" differs per context:
-
-**DESIGN_VARIANCE (V, 1–10) — how unexpected?**
-- 1–3: regulated, enterprise, compliance-first. Strict symmetry.
-- 4–6: modern SaaS, brand sites. Ordered, with local asymmetry.
-- 7–8: consumer products, Apple-tier. Bento grids, parallax, dimensional whitespace.
-- 9–10: award-tier, studios, experiments. Aggressive asymmetry, typographic collisions.
-
-**MOTION_INTENSITY (M, 1–10) — how alive?**
-- 1–2: near-static admin tools; color transitions only.
-- 3–4: restrained; entrance shifts of 12–16px, smooth hovers.
-- 5–7: standard modern web; parallax, magnetic buttons, sliding tab indicators.
-- 8–10: cinematic; 3D tilt, cursor-reactive, shared-element transitions.
-
-**VISUAL_DENSITY (D, 1–10) — how much per screen?**
-- 1–3: gallery whitespace, luxury, portfolios.
-- 4–5: landing pages, blogs, product intros. The golden middle.
-- 6–8: productivity apps, Linear/GitHub dashboards.
-- 9–10: trading terminals, ops control rooms.
-
-A dispatch tool at V=9 M=8 is wrong; a studio portfolio at V=2 is wrong. The dials are how taste becomes explicit instead of vibes.
+If the line cannot be written, the understanding is not there yet. (For UI work, the `design` skill's Design Read adds the visual world and the V/M/D dials on top of this line.)
 
 ## The phase loop
 
 ```text
-Phase 1  Diagnose     scan against banned-trope matrix / slop taxonomy; strip clutter
-Phase 2  Foundation   pick archetype, declare tokens, pick type pairing, set dials
-Phase 3  Structure    page-level controls, 1-to-3 hierarchy, layout pattern, surface stack
-Phase 4  Detail       8-state primitives, icon system, motion moments, browser surfaces
-Phase 5  Gate         score the axes below; any axis < 4 loops back to Phase 3 (not 4)
+Phase 1  Diagnose     scan against the slop taxonomy / the four debug phases; strip clutter
+Phase 2  Foundation   state the one-line read, the module's actual job, the invariants
+Phase 3  Structure    the smallest honest diff, grouped in batches, TDD where new tests apply
+Phase 4  Detail       naming, comments, idioms, error contracts
+Phase 5  Gate         score the axes below; any failure loops back to Phase 3 (not 4)
 ```
 
-Bounded verification: build fully, inspect once with a batched pass (desktop + mobile together), fix everything shown in one batch, confirm with at most one more round, stop. Open-ended self-QA burns budget and degrades the result.
+Bounded verification: build fully, inspect once with a batched pass, fix everything shown in one batch, confirm with at most one more round, stop. Open-ended self-QA burns budget and degrades the result.
 
-## The UI gate — 7 axes, every axis ≥ 4 (score 1–5)
+## The process gate (runs on any claim of progress)
 
-| Axis | Checks |
-| --- | --- |
-| **1. Anti-slop purity** | Zero gradient blobs / gradient text; zero emoji icons; zero one-word italic accents; zero vanity stats; zero dead placeholders |
-| **2. UX speed & 1-to-3** | One primary action per zone; ≤ 3 secondary; filters unified at page level; zero duplicated metrics |
-| **3. Typographic discipline** | ≤ 2 families; tabular-nums on all metrics; body ≤ 75ch; sentence case; obvious scale steps; negative tracking on display |
-| **4. Spacing geometry** | 8pt ladder values only; nested-radius formula holds; ≥ 16px card padding; optical icon alignment |
-| **5. Motion & states** | Transitions < 200ms; 100+/day actions at 0ms; `:active` scale feedback; no `ease-in`; reduced-motion variant; all 8 states present |
-| **6. Accessibility** | `:focus-visible` everywhere; no bare `outline: none`; `aria-label` on icon-only buttons; semantic elements (`button`, `nav`, `main`); contrast 4.5:1 / 3:1 |
-| **7. Responsive linearity** | Clean vertical stacking on mobile; zero horizontal overflow; ≥ 44px touch targets; tables become cards or scroll containers |
+**No completion claims without fresh verification evidence.** Before saying "done", "fixed", "passing", or expressing satisfaction:
+
+1. **Identify** the command that proves the claim. 2. **Run** it fresh and complete. 3. **Read** the full output and the exit code. 4. **Verify** the output confirms the claim — then, only then, make it, *with* the evidence.
+
+| Claim | Requires | Not sufficient |
+| --- | --- | --- |
+| Tests pass | Command output: 0 failures, this run | Previous run, "should pass" |
+| Bug fixed | Original symptom tested and passing | "I changed the code that does that" |
+| Build succeeds | Exit 0 | Linter passing |
+| Subagent finished | VCS diff checked | The agent reported "success" |
+| Requirements met | Line-by-line checklist against the plan | Tests passing |
+
+"Should", "probably", "seems to" — all are recall notices that verification was skipped. A red test watched scrolling past and not mentioned is a report falsified by omission.
 
 ## The code gate
 
